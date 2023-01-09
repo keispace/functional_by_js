@@ -1,0 +1,19 @@
+/* @theme marp */
+
+@import 'gaia';
+
+section {
+    background: rgb(252, 235, 217);
+};
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 48px;
+}
+img {
+    width: 100vw;
+    height: 50vh;
+}
