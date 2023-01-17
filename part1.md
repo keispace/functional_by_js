@@ -11,6 +11,62 @@ header: 'Grokking Simplicity'
 
 ---
 
+<style scoped>
+section {
+    font-size: 22px;
+}
+.columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .columns-left {
+    background: yellow;
+  }
+  .columns-right {
+    background: beige;
+  }
+</style>
+
+# Table of Contents
+
+<div class="columns">
+<div>
+
+- [Grokking Simplicity](#grokking-simplicity)
+- [Table of Contents](#table-of-contents)
+- [쏙쏙 들어오는 함수형 코딩](#쏙쏙-들어오는-함수형-코딩)
+- [Functional Programming?](#functional-programming)
+  - [but,](#but)
+- [함수형 사고](#함수형-사고)
+- [PART I 액션과 계산, 데이터](#part-i-액션과-계산-데이터)
+- [주요 기술(개념)](#주요-기술개념)
+  - [1. Action(액션)](#1-action액션)
+  - [2. Calculation(계산)](#2-calculation계산)
+  - [3. Data(데이터)](#3-data데이터)
+
+</div>
+<div>
+
+- [주요 패턴](#주요-패턴)
+  - [1. Copy-On-Write](#1-copy-on-write)
+  - [2. Defensive Copy](#2-defensive-copy)
+- [Convert to functional](#convert-to-functional)
+- [주요 다이어그램](#주요-다이어그램)
+  - [1. 타임라인 다이어그램](#1-타임라인-다이어그램)
+  - [2. 호출 그래프](#2-호출-그래프)
+  - [2. 호출 그래프(계속)](#2-호출-그래프계속)
+- [계층형 설계 패턴](#계층형-설계-패턴)
+  - [1. 직접구현](#1-직접구현)
+  - [2. 추상화 벽](#2-추상화-벽)
+  - [3. 작은 인터페이스](#3-작은-인터페이스)
+  - [4. 편리한 계층](#4-편리한-계층)
+
+</div>
+</div>
+
+---
+
 # 쏙쏙 들어오는 함수형 코딩 
 
 - 저자 에릭 노먼드. 20년 경력. 함수형 코딩 주도자 중 한명. 
@@ -147,7 +203,7 @@ $~~~$
 
 ## 2. 호출 그래프
 
-![height:300px](https://drek4537l1klr.cloudfront.net/normand/Figures/f0169-01.jpg)
+![height:320px](https://drek4537l1klr.cloudfront.net/normand/Figures/f0169-01.jpg)
 - 함수가 호출하는 함수, 언어기능을 목적별 레이어(계층)으로 구분 
 - 같은 레이어는 같은 목적을 가져야함.
 - 옆(동일 레이어) 함수 호출은 없음.
