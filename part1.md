@@ -20,12 +20,6 @@ section {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
   }
-  .columns-left {
-    background: yellow;
-  }
-  .columns-right {
-    background: beige;
-  }
 </style>
 
 # Table of Contents
@@ -93,13 +87,16 @@ section {
 2. 함수형 프로그래밍은 부수효과를 '잘 다룰 수' 있다. 
     * 배제하는 것이 아니라 잘 다루어야 하는 것. 
 3. 함수형 프로그래밍은 실용적이다.
-    * 정의는 매우 (수학적으로) 이론적이지만 실제 개발에서는 훨씬 실용적으로 사용된다.
+    * 정의는 매우 (수학적으로) 이론적이지만 실제 개발에서는 훨씬 실용적으로 
+사용된다.
 
 ---
 
 # 함수형 사고 
 
-함수형 사고는 __함수형 프로그래머가 소프트웨어 문제를 해결하기 위해 사용하는 기술과 생각__ 으로 크게 두가지 개념으로 나뉨. 
+함수형 사고는  
+__함수형 프로그래머가 소프트웨어 문제를 해결하기 위해 사용하는 기술과 생각__ 
+으로 크게 두가지 개념으로 나뉨. 
 1) 액션과 계산, 데이터를 구분해서 생각하는 것. 
 2) 일급 추상(first-class abstraction)
 
@@ -164,15 +161,27 @@ export function arraySet(array, idx, value) {
     return copied;
 }
 ```
+
 ---
 
 ### 2. Defensive Copy
 
 - 위험지대(가변 데이터가 존재)-안전지대(우리가 구현한 불변 데이터) 사이의 데이터 교환시 사용
 - 깊은 복사(deep copy) 활용
+  - ex. 웹 API(클라-서버) 전달되는 JSON
 - js 는 lodash등 라이브러리로 deep copy 적용 필요
-$~~~$
+
 ![height:200px](https://drek4537l1klr.cloudfront.net/normand/Figures/f0150-04.jpg) ![height:200px](https://drek4537l1klr.cloudfront.net/normand/Figures/f0150-03.jpg)
+
+---
+
+### Comparison 
+
+ ㅤ   | Copy on Write                 | Defensive Copy
+------|:------------------------------|:--------------
+When  | 통제할 수 있는 데이터 변경 시 | 신뢰할 수 없는 코드와 데이터 교환 시
+Where | 안전지대 내부                 | 안전지대 경계
+How   | 얕은 복사                     | 깊은 복사
 
 ---
 
@@ -196,9 +205,10 @@ $~~~$
 
 ![height:500px](https://drek4537l1klr.cloudfront.net/normand/Figures/f0025-02.jpg)
 - 프로그램 흐름에 따라 아래로 진행하는 다이어그램
+- `시간`에 의존적인 액션의 순서를 나타냄.
 - 커팅
     - 비동기 처리를 위해 점선으로 구분. 상단 부분 작업 완료 후에 진행된다는 표시.
-
+- part2에서 자세히..
 ---
 
 ## 2. 호출 그래프
@@ -246,7 +256,7 @@ $~~~$
 
 ### 2. 추상화 벽
 
-![height:300px](https://drek4537l1klr.cloudfront.net/normand/Figures/f0204-01.jpg)
+![height:400px](https://drek4537l1klr.cloudfront.net/normand/Figures/f0204-01.jpg)
 - 세부구현은 감추고 인터페이스 화 하는 것. (호출그래프의 점선 부분)
     - 라이브러리나 API.
 - 벽 위는 비즈니스 로직과 같은 것. 다른 계층에 정보를 신경쓰지 않을 수 있도록 추상화
